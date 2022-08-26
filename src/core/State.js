@@ -3,4 +3,8 @@ export default class State {
     constructor(state) {
         this._state = state;
     }
+
+    setState(newState) {
+        this._state = { ...this._state, ...newState };
+    }
 }
