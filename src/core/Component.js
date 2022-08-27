@@ -6,8 +6,6 @@ export default class Component {
     constructor(targetSelector, props) {
         this._target = document.querySelector(targetSelector);
         this._props = props;
-
-        this.render();
     }
 
     render() {
@@ -15,7 +13,9 @@ export default class Component {
         this.mounted();
     }
 
-    template() {}
+    template() {
+        return ``;
+    }
 
     setEvent() {}
 

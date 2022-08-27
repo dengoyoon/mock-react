@@ -5,11 +5,9 @@ export default class Title extends Component {
     constructor(targetSelector, props) {
         super(targetSelector, props);
         this._state = new State({});
-    }
 
-    // render() {
-    //     super.render();
-    // }
+        this.render();
+    }
 
     template() {
         return `
