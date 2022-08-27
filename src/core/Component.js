@@ -10,6 +10,7 @@ export default class Component {
 
     render() {
         this._target.innerHTML = this.template();
+        this.setEvent();
         this.mounted();
     }
 
@@ -19,9 +20,14 @@ export default class Component {
 
     setEvent() {}
 
-    addEvent() {}
+    addEvent(type, selector, callback) {
+        this._target.querySelector(selector).addEventListener(type, callback);
+    }
 
-    setState() {}
+    setState(newState) {
+        this._state.setState(newState);
+        this.render();
+    }
 
     mounted() {}
 }

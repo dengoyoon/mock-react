@@ -32,4 +32,4 @@ class Observer {
     }
 }
 
-export const itemObserver = new Observer({ items: ["item1", "item2"] });
+export const itemObserver = new Observer({ items: ["item1", "item2"], itemNumber: 3 });
