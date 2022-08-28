@@ -21,7 +21,12 @@ export default class Component {
     setEvent() {}
 
     addEvent(type, selector, callback) {
-        this._target.querySelector(selector).addEventListener(type, callback);
+        console.log("SSDF");
+        const children = [...this._target.querySelectorAll(selector)];
+
+        // const isTarget = (target) => children.includes(target);
+
+        this._target.addEventListener(type, callback);
     }
 
     setState(newState) {
