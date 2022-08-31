@@ -1,9 +1,10 @@
 class Observer {
     _state = {};
-    _subscribers = [];
+    _subscribers;
 
     constructor(initialValue) {
         this._state = { ...initialValue };
+        this._subscribers = new Set();
     }
 
     get() {
@@ -28,7 +29,7 @@ class Observer {
     }
 
     subscribe(callback) {
-        this._subscribers.push(callback);
+        this._subscribers.add(callback);
     }
 }
 

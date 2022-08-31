@@ -1,6 +1,7 @@
 import Component from "../core/Component.js";
 import { itemObserver } from "../core/Observer.js";
 import State from "../core/State.js";
+
 export default class ItemAppender extends Component {
     constructor(targetSelector, props) {
         super(targetSelector, props);

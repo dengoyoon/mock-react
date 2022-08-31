@@ -6,11 +6,11 @@ export default class Component {
     constructor(targetSelector, props) {
         this._target = document.querySelector(targetSelector);
         this._props = props;
+        this.setEvent();
     }
 
     render() {
         this._target.innerHTML = this.template();
-        this.setEvent();
         this.mounted();
     }
 
@@ -23,9 +23,11 @@ export default class Component {
     addEvent(type, selector, callback) {
         const children = [...this._target.querySelectorAll(selector)];
 
-        // const isTarget = (target) => children.includes(target);
-
-        this._target.addEventListener(type, callback);
+        const isTarget = (target) => children.includes(target) || target.closest(selector);
+        this._target.addEventListener(type, (event) => {
+            if (!isTarget(event.target)) return false;
+            callback(event);
+        });
     }
 
     setState(newState) {

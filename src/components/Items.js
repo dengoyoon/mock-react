@@ -18,9 +18,9 @@ export default class Items extends Component {
             <ul>
                 ${items
                     .map(
-                        (item) => `
+                        (item, index) => `
                             <li>
-                                <span>${item}</span><button class="delete-btn">삭제</button>    
+                                <span>${item}</span><button class="delete-btn" data-index="${index}">삭제</button>    
                             </li>
                         `
                     )
@@ -35,11 +35,11 @@ export default class Items extends Component {
             //     itemNumber : this._state.get('itemNumber') - 1,
             //     items : this._state.get('items').filter((_, index) => index !== e.target.)
             // })
-            console.log(e.target.dataset.index);
         }
+        console.log(e.target.dataset.index);
     }
 
     setEvent() {
-        this.addEvent("click", "ul", this.onClickDelete.bind(this));
+        this.addEvent("click", ".delete-btn", this.onClickDelete.bind(this));
     }
 }
