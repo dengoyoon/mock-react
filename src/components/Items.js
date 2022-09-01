@@ -30,13 +30,14 @@ export default class Items extends Component {
     }
 
     onClickDelete(e) {
-        if (e.target.tagName === "BUTTON") {
-            // itemObserver.update({
-            //     itemNumber : this._state.get('itemNumber') - 1,
-            //     items : this._state.get('items').filter((_, index) => index !== e.target.)
-            // })
-        }
-        console.log(e.target.dataset.index);
+        itemObserver.update({
+            itemNumber: this._state.get("itemNumber") - 1,
+            items: [
+                ...this._state
+                    .get("items")
+                    .filter((_, index) => index !== Number(e.target.dataset.index)),
+            ],
+        });
     }
 
     setEvent() {

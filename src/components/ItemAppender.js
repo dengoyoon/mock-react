@@ -17,11 +17,11 @@ export default class ItemAppender extends Component {
     }
 
     onClickAppend() {
+        this._state = new State(itemObserver.get());
         itemObserver.update({
             itemNumber: this._state.get("itemNumber") + 1,
             items: [...this._state.get("items"), `item${this._state.get("itemNumber")}`],
         });
-        this._state = new State(itemObserver.get());
     }
 
     setEvent() {
