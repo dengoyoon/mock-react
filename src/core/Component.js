@@ -17,6 +17,10 @@ export default class Component {
         */
     }
 
+    get state() {
+        return this._state.getState();
+    }
+
     render() {
         this._target.innerHTML = this.template();
         this.mounted();
@@ -46,5 +50,6 @@ export default class Component {
         this.render();
     }
 
+    // 컴포넌트가 렌더링되고 그 안에 자식 컴포넌트를 생성하고 싶을때 이 메서드를 오버라이드 한다.
     mounted() {}
 }

@@ -11,6 +11,7 @@ class Observer {
         return this._state;
     }
 
+    // update를 Object.defineProperty를 이용하면 좀 더 자연스러운 연출이 될듯?
     update(newState) {
         this._state = { ...newState };
         this._notify();
